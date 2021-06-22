@@ -1,0 +1,56 @@
+<div [@routerTransition]>
+    <h2 class="text-muted">Dashboard <small>Statistics Overview</small></h2>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+        <p-dropdown id="district" [options]="taskOptions" [style]="{'width':'80%'}"
+         [(ngModel)]="taskOption" (onChange)="getTasks($event)"></p-dropdown>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [icon]="'fa-tasks'" [count]="assignedTasks" [label]="'Assigned Tasks'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'warning'" [icon]="'fa-tasks'" [count]="tasksInProgress" [label]="'Tasks In Progress'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'success'" [icon]="'fa-tasks'" [count]="tasksCompleted" [label]="'Completed Tasks'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'danger'" [icon]="'fa-tasks'" [count]="tasksClosed" [label]="'Closed Tasks'"></app-stat>
+        </div>
+    </div>
+    <hr />
+    <ngb-alert [type]="alert.type" (close)="closeAlert(alert)" *ngFor="let alert of alerts">{{ alert.message }}</ngb-alert>
+    <hr />
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-default">
+                <div class="card-header">
+                    <i class="fa fa-clock-o fa-fw"></i> Tasks Due Today
+                </div>
+                <!-- /.card-header -->
+                <app-timeline [value]="choosenWhichTask"></app-timeline>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+            <div class="card card-default mb-3">
+                <div class="card-header">
+                    <i class="fa fa-bell fa-fw"></i> New Task Created
+                </div>
+                <!-- /.card-header -->
+                <app-notification [wichTask]="choosenWhichTask"></app-notification>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+
+            <!-- <app-chat></app-chat> -->
+            <!-- /.card .chat-card -->
+        </div>
+        <!-- /.col-lg-4 -->
+    </div>
+</div>
