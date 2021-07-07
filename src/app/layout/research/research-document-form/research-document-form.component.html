@@ -1,0 +1,73 @@
+<p-toast [style]="{marginTop: '100px'}"></p-toast>
+<form role="form" [formGroup]="researchForm" (ngSubmit)="save(researchForm)">
+  <div class="card">
+    <div class="card-header">
+      Research Document Upload Form
+    </div>
+    <div class="card-body">
+        <div class="form-row">
+            <div class="col form-group">
+              <label for="lname">Title</label><br />
+              <input id="lname" type="text" formControlName="title"  class="form-control" style="width:80%">
+            </div>
+            <div class="col form-group">
+              <label for="ca">Sector</label><br>
+              <input id="ca" type="text" formControlName="sector"  class="form-control" style="width:80%">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="ca">Publisher</label><br>
+              <input id="ca" type="text" formControlName="publisher"  class="form-control" style="width:80%">
+            </div>
+            <div class="col form-group">
+              <label for="capital">Year</label>
+              <input id="capital" type="text" formControlName="year"  class="form-control" style="width:80%">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col form-group">
+              <label for="capital">Pages</label>
+              <input id="capital" type="text" formControlName="pages"  class="form-control" style="width:80%">
+            </div>
+            <div class="col form-group">
+              <label for="plocation">Edition</label><br />
+              <input id="plocation" type="text" formControlName="edition"  class="form-control" style="width:80%">
+            </div>
+        </div>
+        <div class="form-row">
+          <div class="col form-group">
+            <label for="plocation">Published Date</label><br />
+            <p-calendar showButtonBar="true" formControlName="publishedDate" appendTo="body"
+            [showIcon]="true" [inputStyle]="{'width':'80%'}"
+            [style]="{'overflow': 'visible', 'z-index': '999','width':'40%'}"
+            [inputStyle]="{'width':'620px'}" id="ostatus"></p-calendar>
+          </div>
+          <div class="col form-group">
+            <label for="plocation">Summary</label><br />
+            <input id="plocation" type="text" formControlName="paperSummary"  class="form-control" style="width:80%">
+          </div>
+        </div>
+        <div class="form-row" *ngIf="id==0">
+          <div class="col-sm-5 form-group">
+            <label for="plocation">Upload Document</label><br />
+            <p-fileUpload name="demo[]"  (uploadHandler)="onUpload($event)"
+               accept=".doc, .docx, .pdf" maxFileSize="10000000" customUpload="true" fileLimit="1">
+            <ng-template pTemplate="content">
+        <!-- <ul *ngIf="uploadedFiles.length">
+            <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+        </ul> -->
+    </ng-template>
+</p-fileUpload>
+          </div>
+        </div>
+    </div>
+    <div class="card-footer">
+      <button type="submit" pButton icon="fa fa-save" label="Save"></button>&nbsp;
+      <button type="submit" pButton icon="fa fa-save" label="Add Authors" class="ui-button-success" (click)="goToAuthor()" ></button>&nbsp;
+      <button type="button" pButton icon="fa fa-check" label="Clear" class="ui-button-secondary" (click)="clearForm()"></button>&nbsp;
+      <button type="button" pButton icon="fa fa-arrow-left" label="Back" class="ui-button-success" (click)="returnToList()"></button>
+    </div>
+  </div>
+</form>
+

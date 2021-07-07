@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.loginService.logout();
 
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'dashboard';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || 'layout/homepage';
         this.authenticated = new FormGroup({
           username: new FormControl(''),
           password: new FormControl('')
@@ -44,13 +44,17 @@ export class LoginComponent implements OnInit {
             (data) => {
               this.token.saveToken(data['accessToken']);
               this.token.setUserName(value.username);
-              this.token.setPosition(data['position']);
-                this.router.navigate([this.returnUrl]);
+              this.token.setAuthority(data['authorities'][0].authority);
+              this.router.navigate([this.returnUrl]);
             },
             error => {
               console.log(error);
               this.messageService.add({severity: 'error', summary: 'Error Message', detail: error.error.message});
             });
+    }
+
+    homePage() {
+      this.router.navigate(['researchView']);
     }
 }
 

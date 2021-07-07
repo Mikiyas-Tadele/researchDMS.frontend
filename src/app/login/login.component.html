@@ -14,7 +14,11 @@
                         <input type="password" formControlName="password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}">
                     </div>
                 </div>
-                <button type="submit" class="btn rounded-btn" [routerLink]="['/dashboard']">{{ 'Log in' | translate }}</button>
+                <div class="row" style="margin-left: 15%;">
+                    <button type="submit" class="btn rounded-btn">{{ 'Log in' | translate }}</button>
+                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn rounded-btn btn-success" (click)="homePage()">{{ 'Home Page' | translate }}</button>
+                </div>              
             </form>
         </div>
     </div>

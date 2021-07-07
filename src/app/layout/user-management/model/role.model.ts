@@ -1,4 +1,4 @@
-export class WorkunitModel {
+export class RoleModel {
     id: number;
     name: string;
 }

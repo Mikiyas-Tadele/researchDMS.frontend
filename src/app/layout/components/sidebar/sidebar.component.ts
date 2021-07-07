@@ -39,6 +39,9 @@ export class SidebarComponent implements OnInit {
         this.collapsed = false;
         this.showMenu = '';
         this.pushRightClass = 'push-right';
+        this.isAdmin = this.token.getAuthority() === 'ROLE_ADMIN' ? true : false;
+
+
 
     }
 

@@ -1,9 +1,13 @@
+import { RoleModel } from './role.model';
+
 export class UserModel {
     id: number;
-    userName: string;
-    teamDesc: string;
-    teamId: number;
-    fullName: string;
-    mobile: string;
-    extension: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    roleId: number;
+    email: string;
+    active: string;
+    activeDesc: string;
+    role: string;
 }

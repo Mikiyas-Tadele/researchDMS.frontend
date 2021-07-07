@@ -19,11 +19,11 @@ export class UserManagementComponent implements OnInit {
 
   ngOnInit() {
       this.userColumns = [
-          { field: 'userName', header: 'User Name', hide: false },
-          { field: 'fullName', header: 'Full Name', hide: false },
-          { field: 'teamDesc', header: 'Team', hide: false },
-          { field: 'mobile', header: 'Mobile Phone', hide: false },
-          { field: 'extension', header: 'Extension', hide: false },
+          { field: 'username', header: 'User Name', hide: false },
+          { field: 'firstName', header: 'First Name', hide: false },
+          { field: 'lastName', header: 'Last Name', hide: false },
+          { field: 'email', header: 'Email', hide: false },
+          { field: 'activeDesc', header: 'Is Active', hide: false },
           { field: 'id', header: 'id', hide: true }
       ];
 
@@ -33,14 +33,10 @@ export class UserManagementComponent implements OnInit {
   }
 
   editUser(data: UserModel) {
-      this.router.navigate(['/userForm/' + data.id ]);
+      this.router.navigate(['/layout/userForm/' + data.id ]);
   }
 
   addNewUser() {
-   this.router.navigate(['/userForm/0']);
-  }
-
-  gotoPosition() {
-    this.router.navigate(['/position']);
+   this.router.navigate(['/layout/userForm/0']);
   }
 }

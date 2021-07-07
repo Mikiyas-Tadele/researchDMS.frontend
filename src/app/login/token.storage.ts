@@ -36,6 +36,14 @@ export class TokenStorage {
     return window.sessionStorage.getItem('position');
   }
 
+  public setAuthority(authority: string) {
+    window.sessionStorage.setItem('authority', authority);
+  }
+
+  public getAuthority() {
+    return window.sessionStorage.getItem('authority');
+  }
+
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
   }

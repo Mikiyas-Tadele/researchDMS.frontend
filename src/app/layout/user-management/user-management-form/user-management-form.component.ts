@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TeamsModel } from '../model/teams.model';
 import { UserModel } from '../model/user.model';
-import { WorkunitModel } from '../model/work.unit.model';
 import { UserManagementService } from '../user-management.service';
 import * as _ from 'underscore';
+import { RoleModel } from '../model/role.model';
 
 @Component({
   selector: 'app-user-management-form',
@@ -18,6 +17,7 @@ export class UserManagementFormComponent implements OnInit {
     teamsList: any = [];
     teamsListFiltered: any = [];
     workUnitList: any = [];
+    roles: any = [];
     constructor(
         private userService: UserManagementService,
         private router: Router,
@@ -31,55 +31,27 @@ export class UserManagementFormComponent implements OnInit {
              const userModel = res as UserModel;
              this.userFormGroup.setValue({
                id: userModel.id,
-               userName: userModel.userName,
-               teamId: userModel.teamId,
-               fullName: userModel.fullName,
-               mobile: userModel.mobile,
-               extension: userModel.extension
+               username: userModel.username,
+               firstName: userModel.firstName,
+               lastName: userModel.lastName,
+               email: userModel.email,
+               active: userModel.active,
+               roleId: userModel.roleId
              });
           });
         }
         this.userFormGroup = new FormGroup({
            id: new FormControl(''),
-           userName: new FormControl(''),
-           teamId: new FormControl(''),
-           fullName: new FormControl(''),
-           mobile: new FormControl(''),
-           extension: new FormControl('')
+           username: new FormControl(''),
+           firstName: new FormControl(''),
+           lastName: new FormControl(''),
+           email: new FormControl(''),
+           active: new FormControl(''),
+           roleId: new FormControl('')
 
         });
 
-        this.getWorkUnits();
-        this.getAllTeams();
-    }
-
-    getWorkUnits() {
-        this.userService
-            .getWorkunits()
-            .subscribe(res => {
-                const wu = res as WorkunitModel[];
-                for (let i = 0; i < wu.length; i++) {
-                    const l = {
-                        label: wu[i].name,
-                        value: wu[i].id
-                    };
-                    this.workUnitList.push(l);
-                }
-            });
-    }
-
-    getAllTeams() {
-      this.userService.getAllTeams().subscribe(res => {
-        const wu = res as TeamsModel[];
-         for (let i = 0; i < wu.length; i++) {
-             const l = {
-                 label: wu[i].name,
-                 value: wu[i].id,
-                 code: wu[i].workUnitId
-             };
-             this.teamsList.push(l);
-         }
- });
+        this.getRoles();
     }
     filterTeams(event: any) {
       console.log(event);
@@ -99,8 +71,23 @@ export class UserManagementFormComponent implements OnInit {
         this.userFormGroup.reset();
     }
 
-    returnToTechnicalAppraisalForm() {
-        this.router.navigate(['/users']);
+    back() {
+        this.router.navigate(['/layout/users']);
     }
+
+    getRoles() {
+      this.userService
+          .getRoles()
+          .subscribe(res => {
+              const roles = res as RoleModel[];
+              for (let i = 0; i < roles.length; i++) {
+                  const l = {
+                      label: roles[i].name,
+                      value: roles[i].id
+                  };
+                  this.roles.push(l);
+              }
+          });
+  }
 
 }

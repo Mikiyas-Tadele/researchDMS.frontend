@@ -1,0 +1,34 @@
+<p-table [columns]="researchDocumentCols" [value]="researchDocuments"  
+      [paginator]="true" [rows]="10">
+      <ng-template pTemplate="caption">
+        <div style="text-align:left">
+          <button type="button" pButton icon="fa fa-plus"  (click)="addNew()" label="Add New" 
+            style="margin-right: 0.4%"></button>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <ng-container *ngFor="let col of columns">
+          <th *ngIf="!col.hide">
+            {{col.header}}
+          </th>
+          </ng-container>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td>{{rowData.title}}</td>
+          <td>{{rowData.sector}}</td>
+          <td>{{rowData.publisher}}</td>
+          <td>{{rowData.year}}</td>
+          <td>{{rowData.pages}}</td>
+          <td>{{rowData.edition}}</td>
+          <td>{{rowData.publishedDate | date}}</td>
+          <td>{{rowData.paperSummary}}</td>
+          <td><button pButton icon="pi pi-save" class="ui-button-success" (click)="update(rowData)" pTooltip="update" tooltipPosition="top"></button>
+          &nbsp;&nbsp;<button pButton icon="pi pi-download" class="ui-button-success" (click)="downloadFile(rowData)" pTooltip="download" tooltipPosition="top"></button></td>
+         
+        </tr>
+      </ng-template>
+    </p-table>

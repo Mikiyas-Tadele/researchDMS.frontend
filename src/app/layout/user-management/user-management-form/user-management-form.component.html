@@ -9,40 +9,35 @@
         <div class="form-row">
             <div class="col form-group">
               <label for="ramount">User Name: </label>
-              <input type="text" id="ramount" class="form-control" formControlName="userName" style="width:80%"/>
+              <input type="text" id="ramount" class="form-control" formControlName="username" style="width:80%"/>
           </div>
           <div class="col form-group">
-            <label for="fname">Full Name: </label>
-            <input type="text" id="fname" class="form-control" formControlName="fullName" style="width:80%"/>
+            <label for="fname">First Name: </label>
+            <input type="text" id="fname" class="form-control" formControlName="firstName" style="width:80%"/>
         </div>
         </div>
       <div class="form-row">
         <div class="col form-group">
-          <label for="district">WorkUnits: </label><br />
-          <p-dropdown id="district" [options]="workUnitList" [style]="{'width':'80%'}" placeholder="Select Workunit"
-            filter="true" (onChange)="filterTeams($event)"></p-dropdown>
-        </div>
-        <div class="col form-group">
-          <label for="branch">Teams: </label><br />
-          <p-dropdown id="branch" [options]="teamsListFiltered" [style]="{'width':'80%'}" placeholder="Select Teams"
-            formControlName="teamId" filter="true" ></p-dropdown>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="col form-group">
-          <label for="mobile">Mobile Phone: </label>
-          <input type="text" id="mobile" class="form-control" formControlName="mobile" style="width:80%"/>
+          <label for="mobile">Last Name: </label>
+          <input type="text" id="mobile" class="form-control" formControlName="lastName" style="width:80%"/>
       </div>
       <div class="col  form-group">
-        <label for="extension">Office Extension: </label>
-        <input type="text" id="extension" class="form-control" formControlName="extension" style="width:80%"/>
+        <label for="extension">Email: </label>
+        <input type="text" id="extension" class="form-control" formControlName="email" style="width:80%"/>
     </div>
+    </div>
+    <div class="form-row">
+      <div class="col form-group">
+        <label for="role">Roles: </label><br>
+        <p-dropdown id="ltype" [options]="roles" placeholder="Select Role" [style]="{'width':'40%'}"
+            formControlName="roleId" ></p-dropdown>
+      </div>
     </div>
     </div>
     <div class="card-footer">
       <button type="submit" pButton icon="fa fa-save" label="Save"></button>&nbsp;
       <button type="button" pButton icon="fa fa-check" label="Clear" class="ui-button-secondary" (click)="clearForm()"></button>&nbsp;
-      <button type="button" pButton icon="fa fa-arrow-left" label="Back" class="ui-button-success" (click)="returnToTechnicalAppraisalForm()"></button>
+      <button type="button" pButton icon="fa fa-arrow-left" label="Back" class="ui-button-success" (click)="back()"></button>
     </div>
   </div>
 </form>

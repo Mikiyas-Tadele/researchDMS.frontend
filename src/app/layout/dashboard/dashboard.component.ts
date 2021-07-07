@@ -61,18 +61,6 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-       this.dashboardService.getMyNumberOfTasks(TaskStatus.ASSIGNED).subscribe(assignedNumber => {
-             this.assignedTasks = assignedNumber as number;
-       });
-       this.dashboardService.getMyNumberOfTasks(TaskStatus.ON_PROGRESS).subscribe(tasksInprogressNumber => {
-        this.tasksInProgress = tasksInprogressNumber as number;
-       });
-       this.dashboardService.getMyNumberOfTasks(TaskStatus.CLOSED).subscribe(tasksClosedNumber => {
-        this.tasksClosed = tasksClosedNumber as number;
-       });
-       this.dashboardService.getMyNumberOfTasks(TaskStatus.COMPLETED).subscribe(tasksCompletedNumber => {
-        this.tasksCompleted = tasksCompletedNumber as number;
-       });
     }
 
     public closeAlert(alert: any) {

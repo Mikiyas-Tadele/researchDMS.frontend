@@ -1,0 +1,40 @@
+ 
+ <form role="form" [formGroup]="researchDocumentAuthorForm" (ngSubmit)="save(researchDocumentAuthorForm)">
+            <div class="row">
+                <div class="col form-group">
+                  <label for="lname">Author Name</label><br />
+                  <input id="lname" type="text" formControlName="fullName"  class="form-control">
+                </div>
+                <div class="col form-group">
+                  <label for="ca">Position </label><br>
+                  <input id="ca" type="text" formControlName="position"  class="form-control">
+                </div>
+                </div>
+              <div class="col form-group">
+          <button type="submit" pButton icon="fa fa-save" label="Save"></button>&nbsp;
+          <button type="button" pButton icon="fa fa-check" label="Clear" class="ui-button-secondary" (click)="clearForm()"></button>&nbsp;
+          <button type="button" pButton icon="fa fa-arrow-left" label="Back" class="ui-button-success" (click)="returnToList()"></button>
+              </div>
+        <br><br>
+    </form>
+<p-table [columns]="researchDocumentAuthorCols" [value]="researchDocumentAuthors"  
+      [paginator]="true" [rows]="10">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <ng-container *ngFor="let col of columns">
+          <th *ngIf="!col.hide">
+            {{col.header}}
+          </th>
+          </ng-container>
+          <th></th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          <td>{{rowData.researchDocumentTitle}}</td>
+          <td>{{rowData.fullName}}</td>
+          <td>{{rowData.position}}</td>
+          <td><button pButton label="Update" class="ui-button-success" (click)="update(rowData)"></button></td>
+        </tr>
+      </ng-template>
+    </p-table>

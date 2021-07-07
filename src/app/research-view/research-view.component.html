@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row" style="margin-left: 25%;margin-top: 2%;">
+    <form role="form" [formGroup]="searchForm" (ngSubmit)="searchDocuments(searchForm)">
+      <div class="row" >
+        <div class="col">
+          <input type="text" class="form-control" formControlName="title" placeholder="Title">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" formControlName="year" placeholder="Year">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" formControlName="edition" placeholder="Update">
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success"><i class="fa fa-search" aria-hidden="true"></i></button>&nbsp;
+          <button type="button" class="btn btn-secondary" (click)="clearForm()">Clear</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" (click)="login()">Log in</button>
+          </div>
+      </div>
+    </form>
+  </div><br><br>
+  <div class="row" style="margin-left: 3%;">
+<table class="table table-striped  table-responsive">
+  <thead style="background-color: forestgreen;">
+    <tr>
+    <th>SR.No</th>
+    <th>Authors</th>
+    <th>Title</th>
+    <th>Publisher</th>
+    <th>Sector</th>
+    <th>Year</th>
+    <th>Published Date</th>
+    <th>Pages</th>
+    <th>Size</th>
+    <th>Extension</th>
+    <th>Edition</th>
+    <!-- <th>Download</th> -->
+    <th>Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let doc of researchDocuments | paginate : config">
+       <td>{{doc.id}}</td>
+       <td><button pButton label="Authors" class="ui-button-secondary" (click)="displayAuthors($event,doc,op3)"></button></td>
+       <td>{{doc.title}}</td>
+       <td>{{doc.publisher}}</td>
+       <td>{{doc.sector}}</td>
+       <td>{{doc.year}}</td>
+       <td>{{doc.publishedDate | date}}</td>
+       <td>{{doc.pages}}</td>
+       <td>{{doc.fileSizeFormatted}}</td>
+       <td>{{doc.extension}}</td>
+       <td>{{doc.edition}}</td>
+       <!-- <td><button pButton icon="pi pi-download" class="ui-button-secondary" (click)="downloadFile(doc)" pTooltip="download" tooltipPosition="top"></button></td> -->
+       <td>{{doc.paperSummary}}</td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="pageChanged($event)" [responsive]="true" [maxSize]="researchDocuments.length"></pagination-controls>
+</div>
+</div>
+
+<p-overlayPanel  appendTo="body" #op3>
+  <table>
+    <tr *ngFor="let a of researchAuthors">
+      <td>{{a.fullName}}</td>
+    </tr>
+  </table>
+</p-overlayPanel>

@@ -1,20 +1,12 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
-        <a  routerLink="/users" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a *ngIf="isAdmin" routerLink="/layout/users" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'User Management' | translate }}</span>
         </a>
-        <a  routerLink="/myTask" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a  *ngIf="isAdmin" routerLink="/layout/research" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
-            <span>{{ 'My Task' | translate }}</span>
-        </a>
-        <a  routerLink="/mySubordinateTask" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
-            <span>{{ 'My Subordinate Task' | translate }}</span>
-        </a>
-        <a  routerLink="/newTask" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-dashboard"></i>&nbsp;
-            <span>{{ 'New Task' | translate }}</span>
+            <span>{{ 'Upload Document' | translate }}</span>
         </a>
     </div>
     <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">

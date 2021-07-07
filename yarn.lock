@@ -169,7 +169,7 @@
     "universal-analytics" "^0.4.20"
     "uuid" "^3.3.2"
 
-"@angular/common@^6.0.0", "@angular/common@^7.2.0 || ^8.0.0", "@angular/common@^8.0.0 || ^9.0.0-0", "@angular/common@>=6.0.0", "@angular/common@>=7.0.0", "@angular/common@8.2.3":
+"@angular/common@^6.1.0", "@angular/common@^7.2.0 || ^8.0.0", "@angular/common@^8.0.0 || ^9.0.0-0", "@angular/common@>=5.0.0", "@angular/common@>=6.0.0", "@angular/common@>=7.0.0", "@angular/common@8.2.3":
   "integrity" "sha512-Y8ttd66bAApnJgxjndVnBP0aMsID8AzttR2TKp1KpdDKy4n6td22+1DeHZJqPMOBwoTDEdjHZqFQ7XRNYe3IVw=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-8.2.3.tgz"
   "version" "8.2.3"
@@ -200,14 +200,14 @@
   dependencies:
     "tslib" "^1.9.0"
 
-"@angular/core@^6.0.0", "@angular/core@^7.2.0 || ^8.0.0", "@angular/core@^8.0.0 || ^9.0.0-0", "@angular/core@>=2.3.1 <10.0.0 || >9.0.0-beta <10.0.0 || >9.1.0-beta <10.0.0 || >9.2.0-beta <10.0.0", "@angular/core@>=6.0.0", "@angular/core@>=7.0.0", "@angular/core@8.2.3":
+"@angular/core@^6.1.0", "@angular/core@^7.2.0 || ^8.0.0", "@angular/core@^8.0.0 || ^9.0.0-0", "@angular/core@>=2.3.1 <10.0.0 || >9.0.0-beta <10.0.0 || >9.1.0-beta <10.0.0 || >9.2.0-beta <10.0.0", "@angular/core@>=5.0.0", "@angular/core@>=6.0.0", "@angular/core@>=7.0.0", "@angular/core@8.2.3":
   "integrity" "sha512-wNlq6r0RI8q0BCr3I16NHfteliJLVjZN3MsLfzYi4u08LcGTemGL9YwcVjCOPEH4xREo3xX0ebvmuLwObu75lQ=="
   "resolved" "https://registry.npmjs.org/@angular/core/-/core-8.2.3.tgz"
   "version" "8.2.3"
   dependencies:
     "tslib" "^1.9.0"
 
-"@angular/forms@^6.0.0", "@angular/forms@8.2.3":
+"@angular/forms@^6.1.0", "@angular/forms@8.2.3":
   "integrity" "sha512-BDphHWx6FI3wfOd9XqhiUBKuIg4dnpr9Aw5+n1by4y9e2avBwWoefHJ15FtEZdop5qMwVWlCcHjdwZ2+q65f4g=="
   "resolved" "https://registry.npmjs.org/@angular/forms/-/forms-8.2.3.tgz"
   "version" "8.2.3"
@@ -977,10 +977,12 @@
   "resolved" "https://registry.npmjs.org/@istanbuljs/schema/-/schema-0.1.3.tgz"
   "version" "0.1.3"
 
-"@ng-bootstrap/ng-bootstrap@^2.0.0":
-  "integrity" "sha512-uqngK1urcevQeF+zgoGW1XDnasjoob4QrwhynNUFpDnnplP1wa+BEUjpSccxU+L2dHLfrOb2sPGEGp8cE2X3Iw=="
-  "resolved" "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-2.2.2.tgz"
-  "version" "2.2.2"
+"@ng-bootstrap/ng-bootstrap@3.3.1":
+  "integrity" "sha512-awty+5Kil0i/xIV7SSmKa5YozU83EdIx2EenF2AUDTczSKhHNhRByo82rjtwIhshN25/ZEss4aSDhgILLI88fw=="
+  "resolved" "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-3.3.1.tgz"
+  "version" "3.3.1"
+  dependencies:
+    "tslib" "^1.9.0"
 
 "@ngtools/webpack@8.3.29":
   "integrity" "sha512-7uB7dlAHR7RmxcQCYidnWRR1tFRJq7CzI+MM3725ibAvi4HnM5viC/HnKRTK7V+3iS1C0l0u0Gyo/769NsUDTQ=="
@@ -4469,12 +4471,7 @@
   "resolved" "https://registry.npmjs.org/inherits/-/inherits-2.0.3.tgz"
   "version" "2.0.3"
 
-"ini@^1.3.4":
-  "integrity" "sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw=="
-  "resolved" "https://registry.npmjs.org/ini/-/ini-1.3.5.tgz"
-  "version" "1.3.5"
-
-"ini@1.3.5":
+"ini@^1.3.4", "ini@1.3.5":
   "integrity" "sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw=="
   "resolved" "https://registry.npmjs.org/ini/-/ini-1.3.5.tgz"
   "version" "1.3.5"
@@ -5870,6 +5867,11 @@
     "@types/chart.js" "^2.7.48"
     "lodash" "^4.17.11"
     "tslib" "^1.9.0"
+
+"ngx-pagination@~5.1.1":
+  "integrity" "sha512-KxHES+Dn6pbetytO9ng2GAdclmo4UcwzFmQyVPWh2xRPbAlv5/ezL2xnDVBFMqCoJQaZagvdQ+ZZFbqGWqAvCQ=="
+  "resolved" "https://registry.npmjs.org/ngx-pagination/-/ngx-pagination-5.1.1.tgz"
+  "version" "5.1.1"
 
 "nice-try@^1.0.4":
   "integrity" "sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ=="
